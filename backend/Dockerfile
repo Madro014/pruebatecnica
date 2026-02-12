@@ -1,31 +1,25 @@
-# Usar una imagen base de Python ligera
-FROM python:3.12-slim
+# Usar Alpine para el menor tamaño posible
+FROM python:3.12-alpine
 
-# Evitar que Python genere archivos .pyc y asegurar que los logs se muestren en tiempo real
+# Evitar archivos temporales de Python
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Instalar dependencias del sistema necesarias para psycopg2 y herramientas básicas
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
+# Instalar dependencias mínimas para PostgreSQL en Alpine
+# build-base es necesario para compilar algunas librerías si fuera necesario
+RUN apk add --no-cache postgresql-dev gcc musl-dev libffi-dev
 
-# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar el archivo de requerimientos primero para aprovechar la caché de Docker
+# Instalar requerimientos
 COPY requirements.txt .
-
-# Instalar las dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar el resto del código del backend
+# Copiar el código del backend solamente
 COPY . .
 
-# Exponer el puerto en el que corre Flask
+# Exponer puerto
 EXPOSE 5000
 
-# Comando para ejecutar la aplicación
-# Usamos main.py como punto de entrada
-CMD ["python", "main.py"]
+# Usar Gunicorn para producción (consume menos recursos que el modo debug de Flask)
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
