@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://pruebatecnica-1-123e.onrender.com/api';
 
 const getHeaders = () => {
     const token = localStorage.getItem('token');
