@@ -1,12 +1,23 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.venv/
-venv/
+# Excluir TODO excepto el código del backend
+*
+!app/
+!main.py
+!requirements.txt
+!Dockerfile
+!.dockerignore
+!utils/
+!models/
+!repositories/
+!services/
+!api/
+
+# Ignorar explícitamente basura de desarrollo
+**/__pycache__
+**/*.pyc
+.venv
+venv
+frontend/
+node_modules
 .env
-.git/
-.gitignore
-instance/
-.pytest_cache/
-.vscode/
+.git
+.vscode
