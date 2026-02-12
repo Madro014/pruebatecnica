@@ -1,12 +1,13 @@
-# Ignorar carpetas pesadas para evitar exceder límites de Docker
+# Ignorar carpetas pesadas para el build del backend
+.git
+.venv
+venv
 frontend/
-.venv/
-venv/
 node_modules/
-__pycache__/
-*.pyc
-.git/
+**/__pycache__
+**/*.pyc
 .env
 .vscode/
-# No necesitamos el build de react aquí
-backend/venv/
+README.md
+package.json
+package-lock.json
