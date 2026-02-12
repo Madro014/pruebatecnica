@@ -1,0 +1,12 @@
+{
+    "name": "pruebatec-root",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "npx concurrently \"npm run dev-backend\" \"npm run dev-frontend\"",
+        "dev-backend": "cd backend && ../.venv/bin/python main.py",
+        "dev-frontend": "cd frontend && npm run dev"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}

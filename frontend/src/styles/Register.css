@@ -1,0 +1,189 @@
+/* Reuse most styles from Login.css but can add specific ones here if needed */
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at -10% -10%, #4338ca 0%, #0f172a 50%),
+        radial-gradient(circle at 110% 110%, #06b6d4 0%, #0f172a 50%);
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 480px;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2.5rem;
+    padding: 3.5rem;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+}
+
+.brand-icon.large {
+    width: 140px;
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 20px rgba(129, 140, 248, 0.3));
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 2.5rem;
+}
+
+.input-field label {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.input-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1.25rem;
+    color: #475569;
+    transition: color 0.3s ease;
+}
+
+.input-control input {
+    width: 100%;
+    background: rgba(2, 6, 23, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    padding: 1rem 1rem 1rem 3.25rem;
+    color: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-control input:focus {
+    outline: none;
+    background: rgba(2, 6, 23, 0.7);
+    border-color: #6366f1;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.input-control input:focus+.input-icon {
+    color: #818cf8;
+}
+
+.read-only-field .input-control input {
+    color: #475569;
+    cursor: default;
+}
+
+.security-badge {
+    position: absolute;
+    right: 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    color: #818cf8;
+    padding: 0.4rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+}
+
+.field-hint {
+    font-size: 0.75rem;
+    color: #475569;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.submit-action {
+    width: 100%;
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+    color: white;
+    padding: 1.125rem;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.submit-action:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(67, 56, 202, 0.4);
+}
+
+.submit-action:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.submit-action:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.auth-switch {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.switch-link {
+    color: #818cf8;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    transition: color 0.2s;
+}
+
+.switch-link:hover {
+    color: #a5b4fc;
+    text-decoration: underline;
+}
+
+.error-banner {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
